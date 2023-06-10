@@ -33,6 +33,24 @@ function clear()
 }
 
 
+const colorBtn = document.querySelector("#colorBtn");
+const grayBtn = document.querySelector("#grayBtn");
+let gray = true;
+let color = false;
+
+colorBtn.addEventListener('click', function(e)
+{
+    color = true;
+    gray = false;
+});
+
+grayBtn.addEventListener('click', function(e)
+{
+    gray = true;
+    color = false;
+});
+
+
 function grid()
 {
     for(let i = 0; i < gridSize**2; i++)
@@ -53,10 +71,17 @@ function grid()
             let randomGreen = Math.floor(Math.random()*256);
             let randomBlue = Math.floor(Math.random()*256);
 
-            let rgbString = "rgb(" + randomRed + ", " + randomGreen + ", " + randomBlue + ")"; 
-            e.target.style.background = rgbString;
+            let rgbString = "rgb(" + randomRed + ", " + randomGreen + ", " + randomBlue  + ")"; 
+            let grayString = "rgb(" + randomRed + ", " + randomRed + ", " + randomRed  + ")";
+            if(color)
+            {
+                e.target.style.background = rgbString;
+            }
+            if(gray)
+            {
+                e.target.style.background = grayString;
+            }
+                
         });
     }
 }
-
-

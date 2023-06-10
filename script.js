@@ -1,6 +1,7 @@
 const container = document.querySelector("#container");
 const gridBtn = document.querySelector("#gridBtn");
 const clearBtn = document.querySelector("#clearBtn");
+
 let gridSize = 16;
 
 const containerSize = 800;
@@ -8,6 +9,15 @@ const containerSizeString = "width: " + containerSize + "px; height: " + contain
 container.setAttribute('style', containerSizeString);
 
 grid();
+
+const slider = document.getElementById("myRange");
+// const sliderValue = document.querySelector("#sliderValue");
+
+slider.oninput = function() {
+    gridSize = this.value;
+    // sliderValue.textContent = "test";
+    clear();
+  }
 
 gridBtn.addEventListener('click', function(e)
 {
@@ -62,8 +72,8 @@ function grid()
         let boxSizeString = "width: " + boxSize + "px; height: " + boxSize + "px";
         box.setAttribute('style', boxSizeString);
 
-        let customId = 'b' + i;
-        box.setAttribute('id', customId);
+        // let customId = 'b' + i;
+        // box.setAttribute('id', customId);
         container.appendChild(box);
     
         box.addEventListener('mouseenter', function (e) {
@@ -81,7 +91,6 @@ function grid()
             {
                 e.target.style.background = grayString;
             }
-                
         });
     }
 }

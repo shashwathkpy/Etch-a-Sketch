@@ -9,6 +9,7 @@ body {
     border: solid black;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 10px 10px;
 }
 
 .box {

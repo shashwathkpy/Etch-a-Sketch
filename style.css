@@ -12,12 +12,10 @@ body {
 }
 
 .box {
-    /* height: 50px;
-    width: 50px; */
     display: flex;
-
 }
 
-#b5 {
+
+/* #b5 {
     background-color: red;
-}
+} */

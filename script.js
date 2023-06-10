@@ -1,5 +1,6 @@
 const container = document.querySelector("#container");
 const gridBtn = document.querySelector("#gridBtn");
+const clearBtn = document.querySelector("#clearBtn");
 let gridSize = 16;
 
 const containerSize = 800;
@@ -11,12 +12,23 @@ grid();
 gridBtn.addEventListener('click', function(e)
 {
     gridSize = parseInt(prompt("Enter a grid size (1-100): ", "16"));
+    clear();
+});
+
+clearBtn.addEventListener('click', function(e)
+{
+    clear();
+});
+
+function clear()
+{
     while(container.lastElementChild)
     {
         container.removeChild(container.lastElementChild);
     }
     grid();
-});
+}
+
 
 function grid()
 {

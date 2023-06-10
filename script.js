@@ -12,6 +12,9 @@ grid();
 gridBtn.addEventListener('click', function(e)
 {
     gridSize = parseInt(prompt("Enter a grid size (1-100): ", "16"));
+    while(isNaN(gridSize) ||gridSize > 100 || gridSize < 1) {
+        gridSize = parseInt(prompt("That was outside bounds, Enter a grid size (1-100): ", "16"));
+    }
     clear();
 });
 
@@ -46,10 +49,14 @@ function grid()
         container.appendChild(box);
     
         box.addEventListener('mouseenter', function (e) {
-            e.target.style.background = 'lightblue';
+            let randomRed = Math.floor(Math.random()*256);
+            let randomGreen = Math.floor(Math.random()*256);
+            let randomBlue = Math.floor(Math.random()*256);
+
+            let rgbString = "rgb(" + randomRed + ", " + randomGreen + ", " + randomBlue + ")"; 
+            e.target.style.background = rgbString;
         });
     }
-    
 }
 
 

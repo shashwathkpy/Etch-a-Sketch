@@ -9,15 +9,13 @@ body {
     border: solid black;
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-    height: 800px;
 }
 
 .box {
     /* height: 50px;
     width: 50px; */
     display: flex;
-    flex:1;
+
 }
 
 #b5 {

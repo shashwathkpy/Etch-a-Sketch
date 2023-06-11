@@ -1,38 +1,47 @@
+// Etch-a-Sketch JavaScript File by shashwathkpy
+
+// Initialize Continer, Clear Button, and Slider
 const container = document.querySelector("#container");
-const gridBtn = document.querySelector("#gridBtn");
 const clearBtn = document.querySelector("#clearBtn");
 
-let gridSize = 16;
+const slider = document.getElementById("myRange");
+const sliderContainer = document.querySelector(".slideContainer");
 
+let gridSize = slider.getAttribute("value");
+
+const text = document.createElement('h2');
+text.textContent = gridSize + "x" + gridSize;
+sliderContainer.appendChild(text);
+
+
+// Set container size
 const containerSize = 800;
 const containerSizeString = "width: " + containerSize + "px; height: " + containerSize + "px";
 container.setAttribute('style', containerSizeString);
 
+
+// Create initial grid, further grid creation will be made by calling clear()
 grid();
 
-const slider = document.getElementById("myRange");
-// const sliderValue = document.querySelector("#sliderValue");
 
-slider.oninput = function() {
-    gridSize = this.value;
-    // sliderValue.textContent = "test";
-    clear();
-  }
-
-gridBtn.addEventListener('click', function(e)
+// Slider and Clear Button Functionality
+slider.onmouseup = function() 
 {
-    gridSize = parseInt(prompt("Enter a grid size (1-100): ", "16"));
-    while(isNaN(gridSize) ||gridSize > 100 || gridSize < 1) {
-        gridSize = parseInt(prompt("That was outside bounds, Enter a grid size (1-100): ", "16"));
-    }
+    gridSize = this.value;
     clear();
-});
+}
+slider.oninput = function()
+{
+    text.textContent = this.value + "x" + this.value;
+}
 
 clearBtn.addEventListener('click', function(e)
 {
     clear();
 });
 
+
+// Clears out grid and resets it
 function clear()
 {
     while(container.lastElementChild)
@@ -43,6 +52,7 @@ function clear()
 }
 
 
+// Color Manipulation
 const colorBtn = document.querySelector("#colorBtn");
 const grayBtn = document.querySelector("#grayBtn");
 let gray = true;
@@ -61,6 +71,7 @@ grayBtn.addEventListener('click', function(e)
 });
 
 
+// Main Function, creates boxes on the grid and allows coloring over them
 function grid()
 {
     for(let i = 0; i < gridSize**2; i++)
@@ -71,9 +82,6 @@ function grid()
         let boxSize = containerSize/gridSize;
         let boxSizeString = "width: " + boxSize + "px; height: " + boxSize + "px";
         box.setAttribute('style', boxSizeString);
-
-        // let customId = 'b' + i;
-        // box.setAttribute('id', customId);
         container.appendChild(box);
     
         box.addEventListener('mouseenter', function (e) {

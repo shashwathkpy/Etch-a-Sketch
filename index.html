@@ -11,17 +11,19 @@
 
     <body>
         <h1>Etch-a-Sketch</h1>
+        <a id="links" href="https://github.com/shashwathkpy" target="_blank">~shashwathkpy
+            <img src="./images/github_icon.png" width="40" height="40" id="icon">    
+        <a>
+
         <div class="buttons">
-            <button id="gridBtn">Change Grid</button>
-            <button id="clearBtn">Clear</button>
             <button id="colorBtn">Color</button>
             <button id="grayBtn">Gray Scale</button>
+            <button id="clearBtn">Clear</button>
         </div>
 
-        <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-        </div>
-        <div id="container">
-
+        <div id="container"></div>
+        <div class="slideContainer">
+            <h2>Slide to Change Grid Size</h2>
+            <input type="range" min="1" max="100" value="16" class="slider" id="myRange">
         </div>
     </body>

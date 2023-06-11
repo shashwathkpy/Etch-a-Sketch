@@ -1,8 +1,58 @@
 body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: lightblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#links {
+    margin-top: -15px;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    mix-blend-mode: multiply;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    color: white;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#colorBtn
+{
+    color: blue;
+    background-color: yellow;
+}
+
+#grayBtn
+{
+    color: white;
+    background-color: black;
+}
+
+#clearBtn
+{
+    color: black;
+    background-color: white;
 }
 
 #container {
@@ -10,13 +60,40 @@ body {
     display: flex;
     flex-wrap: wrap;
     box-shadow: 10px 10px;
+    background-color: white;
+    margin: 20px;
 }
 
-.box {
+h2 {
+    text-align: center;
+}
+
+.slideContainer {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 25px;
 }
 
+.slider {
+    appearance: none;
+    width: 50%;
+    height: 15px;
+    background: #ffffff;
+    outline: none;
+    opacity: 0.5;
 
-/* #b5 {
-    background-color: red;
-} */
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px; 
+    height: 25px;
+    background: #000000; 
+    cursor: pointer; 
+  }
